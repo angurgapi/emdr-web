@@ -189,7 +189,7 @@ function Sidebar({
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
-          className="bg-sidebar text-sidebar-foreground p-0"
+          className="bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 relative"
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
@@ -201,6 +201,15 @@ function Sidebar({
             <SheetTitle>Sidebar</SheetTitle>
             <SheetDescription>Displays the mobile sidebar.</SheetDescription>
           </SheetHeader>
+          {/* Close button (mobile) */}
+          <button
+            type="button"
+            onClick={() => setOpenMobile(false)}
+            className="absolute right-2 top-2 inline-flex md:hidden size-7 items-center justify-center rounded-md text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring"
+            aria-label="Close sidebar"
+          >
+            <XIcon className="size-4" />
+          </button>
           <div className="flex h-full w-full flex-col">{children}</div>
         </SheetContent>
       </Sheet>
