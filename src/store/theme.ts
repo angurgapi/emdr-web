@@ -4,14 +4,14 @@ import { persist } from "zustand/middleware";
 import type { Theme } from "@/lib/theme";
 
 type ThemeState = {
-    theme: Theme;                // user selection
+    theme: Theme;
     setTheme: (t: Theme) => void;
 };
 
 export const useThemeStore = create<ThemeState>()(
-    persist(
+    persist<ThemeState>(
         (set) => ({
-            theme: "dark",
+            theme: "light",
             setTheme: (t) => set({ theme: t }),
         }),
         { name: "theme" }

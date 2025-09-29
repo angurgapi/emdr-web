@@ -13,7 +13,7 @@ const ThemeToggle: FC = () => {
 
   return (
     <div className="inline-flex items-center gap-2 rounded-lg">
-      {theme === "dark" ? (
+      {theme && theme === "dark" ? (
         <Button
           size="icon"
           onClick={set("light")}

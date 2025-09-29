@@ -11,6 +11,7 @@ import {
 import { useSessionSettings } from "@/store/sessionSettings";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { useEffect } from "react";
 
 export function SettingsSidebar() {
   const {
