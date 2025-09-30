@@ -8,7 +8,7 @@ export type BallDirection = "leftToRight" | "topToBottom" | "diagLeftToRight" | 
 type SessionSettingsState = {
     ballColor: string;
     bgColor: string;
-    ballSpeed: number; // multiplier, e.g., 0.5–3
+    ballSpeed: number; // multiplier, e.g., 0.5
     ballSize: number; // in px
     ballDirection: BallDirection;
     audioSound: AudioSound;

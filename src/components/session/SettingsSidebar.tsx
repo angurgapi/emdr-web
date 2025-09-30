@@ -24,42 +24,44 @@ export function SettingsSidebar() {
     setBallSize,
   } = useSessionSettings();
   return (
-    <Sidebar
-      className="z-50"
-      style={{ "--sidebar-width": "400px" } as React.CSSProperties}
-    >
-      <SidebarContent className="pt-10">
-        <SidebarHeader>Preferences</SidebarHeader>
+    <Sidebar className="z-50">
+      <SidebarContent className="pt-1">
+        <SidebarHeader className="font-bold">Preferences</SidebarHeader>
         <SidebarGroup>
-          <SidebarGroupLabel>Visual</SidebarGroupLabel>
           <SidebarGroupContent>
-            <div className="flex flex-col gap-2">
-              <span>ball color</span>
-              <Input
-                type="color"
-                value={ballColor}
-                onChange={(e) => setBallColor(e.target.value)}
-              />
+            <div>
+              <span className="mb-2 block">Colors</span>
+              <div className="flex gap-2">
+                <div className="flex w-full flex-col gap-2">
+                  <span>ball</span>
+                  <Input
+                    type="color"
+                    value={ballColor}
+                    onChange={(e) => setBallColor(e.target.value)}
+                  />
+                </div>
+                <div className="flex w-full flex-col gap-2">
+                  <span>background</span>
+                  <Input
+                    type="color"
+                    value={bgColor}
+                    onChange={(e) => setBgColor(e.target.value)}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col gap-2">
-              <span>background color</span>
-              <Input
-                type="color"
-                value={bgColor}
-                onChange={(e) => setBgColor(e.target.value)}
-              />
-            </div>
+
             <div className="flex flex-col gap-2">
               <label htmlFor="ballSpeed">ball speed: {ballSpeed}</label>
               <div className="flex gap-2 items-center">
-                {[0.5, 1, 1.5, 2, 2.5, 3].map((speed) => (
+                {[0.5, 1, 1.5, 2].map((speed) => (
                   <Button
                     size="sm"
                     key={speed}
                     onClick={() => setBallSpeed(speed)}
                     className={`${ballSpeed === speed ? "font-bold" : ""}`}
                   >
-                    {speed}
+                    {speed}x
                   </Button>
                 ))}
               </div>
