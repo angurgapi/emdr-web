@@ -13,11 +13,11 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { colorScheme: "dark light" };
 
 async function computeInitialClassFromCookie() {
-  const cookie = (await cookies()).get(THEME_COOKIE)?.value as 
+  const cookie = (await cookies()).get(THEME_COOKIE)?.value as
     | "light"
     | "dark"
     | undefined;
-  return cookie || "light"
+  return cookie || "light";
 }
 
 export default async function RootLayout({
@@ -28,12 +28,11 @@ export default async function RootLayout({
   const initialHtmlClass = await computeInitialClassFromCookie();
   return (
     <html lang="en" className={initialHtmlClass} suppressHydrationWarning>
+      <link rel="icon" href="/favicon.ico" sizes="any" />
       <body className="min-h-screen bg-white text-zinc-900 dark:bg-black dark:text-white antialiased flex flex-col">
         <ThemeProvider />
         <Header />
-        <main className="flex-1 pt-12">
-          {children}
-        </main>
+        <main className="flex-1 pt-12">{children}</main>
         <Footer />
       </body>
     </html>

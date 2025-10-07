@@ -12,7 +12,7 @@ const SessionBall = forwardRef<HTMLDivElement, BallProps>(
     return (
       <div
         ref={ref}
-        className="absolute top-1/2 -translate-y-1/2 rounded-full will-change-transform"
+        className="absolute top-0 left-0 rounded-full will-change-transform z-10"
         style={{
           backgroundColor: ballColor,
           width: ballSize,

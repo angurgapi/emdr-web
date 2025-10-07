@@ -17,7 +17,7 @@ type SessionSettingsState = {
     setBgColor: (color: string) => void;
     setBallSpeed: (speed: number) => void;
     setBallSize: (size: number) => void;
-    setBallDirection?: (direction: BallDirection) => void;
+    setBallDirection: (direction: BallDirection) => void;
     setAudioSound: (sound: AudioSound) => void;
 
     setSettings: (partial: Partial<Pick<SessionSettingsState,

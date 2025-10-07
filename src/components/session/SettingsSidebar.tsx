@@ -12,6 +12,12 @@ import { useSessionSettings } from "@/store/sessionSettings";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useEffect } from "react";
+import {
+  MoveDiagonal,
+  MoveDiagonal2,
+  MoveHorizontal,
+  MoveVertical,
+} from "lucide-react";
 
 export function SettingsSidebar() {
   const {
@@ -22,7 +28,16 @@ export function SettingsSidebar() {
     bgColor,
     setBgColor,
     setBallSize,
+    ballSize,
+    ballDirection,
+    setBallDirection,
   } = useSessionSettings();
+
+  const sizemap: Record<string, number> = { s: 16, m: 24, l: 32, xl: 48 };
+
+  // useEffect(() => {
+  //   setBallSize(sizemap["m"]);
+  // }, [setBallSize]);
   return (
     <Sidebar className="z-50">
       <SidebarContent className="pt-1">
@@ -33,7 +48,7 @@ export function SettingsSidebar() {
               <span className="mb-2 block">Colors</span>
               <div className="flex gap-2">
                 <div className="flex w-full flex-col gap-2">
-                  <span>ball</span>
+                  <span>Dot</span>
                   <Input
                     type="color"
                     value={ballColor}
@@ -41,7 +56,7 @@ export function SettingsSidebar() {
                   />
                 </div>
                 <div className="flex w-full flex-col gap-2">
-                  <span>background</span>
+                  <span>Background</span>
                   <Input
                     type="color"
                     value={bgColor}
@@ -51,29 +66,75 @@ export function SettingsSidebar() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <label htmlFor="ballSpeed">ball speed: {ballSpeed}</label>
+            <div className="flex flex-col gap-2 mt-2">
+              <label htmlFor="ballSpeed">Dot speed</label>
               <div className="flex gap-2 items-center">
                 {[0.5, 1, 1.5, 2].map((speed) => (
                   <Button
                     size="sm"
                     key={speed}
                     onClick={() => setBallSpeed(speed)}
-                    className={`${ballSpeed === speed ? "font-bold" : ""}`}
+                    variant={ballSpeed === speed ? "default" : "outline"}
                   >
                     {speed}x
                   </Button>
                 ))}
               </div>
             </div>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="ballSpeed">ball size: {ballSpeed}</label>
+            <div className="flex flex-col gap-2 mt-2">
+              <label htmlFor="ballSpeed">Dot size</label>
               <div className="flex gap-2 items-center">
                 {["s", "m", "l", "xl"].map((size) => (
-                  <Button size="sm" key={size} onClick={() => setBallSize(48)}>
+                  <Button
+                    size="sm"
+                    variant={sizemap[size] === ballSize ? "default" : "outline"}
+                    key={size}
+                    onClick={() => setBallSize(sizemap[size])}
+                  >
                     {size}
                   </Button>
                 ))}
+              </div>
+            </div>
+            <div className="flex flex-col gap-2 mt-2">
+              <label htmlFor="ballSpeed">BLS direction</label>
+              <div className="flex gap-2 items-center">
+                <Button
+                  size="sm"
+                  variant={
+                    ballDirection === "leftToRight" ? "default" : "outline"
+                  }
+                  onClick={() => setBallDirection("leftToRight")}
+                >
+                  <MoveHorizontal />
+                </Button>
+                <Button
+                  size="sm"
+                  variant={
+                    ballDirection === "topToBottom" ? "default" : "outline"
+                  }
+                  onClick={() => setBallDirection("topToBottom")}
+                >
+                  <MoveVertical />
+                </Button>
+                <Button
+                  size="sm"
+                  variant={
+                    ballDirection === "diagLeftToRight" ? "default" : "outline"
+                  }
+                  onClick={() => setBallDirection("diagLeftToRight")}
+                >
+                  <MoveDiagonal2 />
+                </Button>
+                <Button
+                  size="sm"
+                  variant={
+                    ballDirection === "diagRightToLeft" ? "default" : "outline"
+                  }
+                  onClick={() => setBallDirection("diagRightToLeft")}
+                >
+                  <MoveDiagonal />
+                </Button>
               </div>
             </div>
           </SidebarGroupContent>
