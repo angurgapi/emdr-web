@@ -40,6 +40,7 @@ const SessionBox = () => {
       oneWayTime: ONE_WAY_TIME_1X,
       mult,
       direction: ballDirection,
+      listenFullscreenEvents: false,
     });
 
     ballClassRef.current = ball;
@@ -53,6 +54,7 @@ const SessionBox = () => {
   useEffect(() => {
     const ball = ballClassRef.current;
     if (!ball) return;
+    console.log("isMovementActive", isMovementActive);
     if (isMovementActive) ball.start();
     else ball.stop();
   }, [isMovementActive]);
@@ -101,37 +103,34 @@ const SessionBox = () => {
 
   useEffect(() => {
     const togglePause = () => {
-      console.log(isMovementActive);
       if (isMovementActive) pause();
       else start();
     };
 
     const onKeyDown = (e: KeyboardEvent) => {
-      console.log("key press");
       const t = e.target as HTMLElement | null;
       const tag = t?.tagName;
       if (t?.isContentEditable || /INPUT|TEXTAREA|SELECT/.test(tag ?? ""))
         return;
 
       if (e.code === "Space" || e.key === " ") {
-        console.log("space pressed");
         e.preventDefault();
         togglePause();
       }
     };
 
-    const onPointerDown = (e: PointerEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.closest("[data-ignore-pause]")) return;
-      togglePause();
-    };
+    // const onPointerDown = (e: PointerEvent) => {
+    //   const target = e.target as HTMLElement;
+    //   if (target.closest("[data-ignore-pause]")) return;
+    //   togglePause();
+    // };
 
     window.addEventListener("keydown", onKeyDown);
-    window.addEventListener("pointerdown", onPointerDown, { passive: true });
+    // window.addEventListener("pointerdown", onPointerDown, { passive: true });
 
     return () => {
       window.removeEventListener("keydown", onKeyDown);
-      window.removeEventListener("pointerdown", onPointerDown as any);
+      //   window.removeEventListener("pointerdown", onPointerDown as any);
     };
   }, [isMovementActive, pause, start]);
 

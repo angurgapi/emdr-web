@@ -45,10 +45,10 @@ export function SettingsSidebar() {
         <SidebarGroup>
           <SidebarGroupContent>
             <div>
-              <span className="mb-2 block">Colors</span>
+              <span className="mb-2 block font-semibold">Colors</span>
               <div className="flex gap-2">
                 <div className="flex w-full flex-col gap-2">
-                  <span>Dot</span>
+                  <span>BLS</span>
                   <Input
                     type="color"
                     value={ballColor}
@@ -66,8 +66,10 @@ export function SettingsSidebar() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-2 mt-2">
-              <label htmlFor="ballSpeed">Dot speed</label>
+            <div className="flex flex-col gap-2 mt-4">
+              <label htmlFor="ballSpeed" className="font-semibold">
+                BLS speed
+              </label>
               <div className="flex gap-2 items-center">
                 {[0.5, 1, 1.5, 2].map((speed) => (
                   <Button
@@ -81,8 +83,10 @@ export function SettingsSidebar() {
                 ))}
               </div>
             </div>
-            <div className="flex flex-col gap-2 mt-2">
-              <label htmlFor="ballSpeed">Dot size</label>
+            <div className="flex flex-col gap-2 mt-4">
+              <label htmlFor="ballSpeed" className="font-semibold">
+                BLS size
+              </label>
               <div className="flex gap-2 items-center">
                 {["s", "m", "l", "xl"].map((size) => (
                   <Button
@@ -96,8 +100,10 @@ export function SettingsSidebar() {
                 ))}
               </div>
             </div>
-            <div className="flex flex-col gap-2 mt-2">
-              <label htmlFor="ballSpeed">BLS direction</label>
+            <div className="flex flex-col gap-2 mt-4">
+              <label htmlFor="ballSpeed" className="font-semibold">
+                BLS direction
+              </label>
               <div className="flex gap-2 items-center">
                 <Button
                   size="sm"
