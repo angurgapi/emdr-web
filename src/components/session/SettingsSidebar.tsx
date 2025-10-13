@@ -39,7 +39,7 @@ export function SettingsSidebar() {
   //   setBallSize(sizemap["m"]);
   // }, [setBallSize]);
   return (
-    <Sidebar className="z-50">
+    <Sidebar className="z-50 min-h-[200px]">
       <SidebarContent className="pt-1">
         <SidebarHeader className="font-bold">Preferences</SidebarHeader>
         <SidebarGroup>

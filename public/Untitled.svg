@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" xmlns:bx="https://boxy-svg.com">
+  <style>
+    :root { --brand: #36548A; --o-stroke: 24; }
+    .word { font: 700 220px "Geist", "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: var(--brand); }
+  </style>
+  <defs>
+    <g id="O-eye">
+      <circle r="108" fill="none" stroke="var(--brand)" stroke-width="var(--o-stroke)"/>
+      <g>
+        <circle r="84" fill="#fff"/>
+        <circle r="38" fill="var(--brand)"/>
+        <circle r="18" fill="#111"/>
+        <circle r="8" cx="-8" cy="-8" fill="#fff" opacity="0.9"/>
+      </g>
+    </g>
+    <style bx:fonts="Bricolage Grotesque">@import url(https://fonts.googleapis.com/css2?family=Bricolage+Grotesque%3Aital%2Cwght%400%2C200..800&amp;display=swap);</style>
+    <bx:export>
+      <bx:file format="svg" href="#object-0"/>
+      <bx:file format="svg" href="#object-1" path="Untitled 2.svg"/>
+      <bx:file format="svg" href="#object-2" path="Untitled 3.svg"/>
+    </bx:export>
+  </defs>
+  <g id="object-2" style="" transform="matrix(1.132067, 0, 0, 0.918577, -145.000183, -14.890326)">
+    <g id="object-1">
+      <text style="fill: rgb(54, 84, 138); font-family: &quot;Bricolage Grotesque&quot;; font-size: 28px; white-space: pre;" x="131.333" y="60.125" id="object-0" transform="matrix(1, 0, 0.00647, 1.096093, -0.330415, -5.110231)">SPOKO</text>
+    </g>
+    <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="276.316" y="53.524"> </text>
+    <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 28px;" x="429.228" y="26.949"> </text>
+    <text style="font-size: 36px; font-family: Roboto; white-space: pre; stroke-width: 1;" x="528.305" y="232.961"> </text>
+    <ellipse style="stroke: rgb(54, 84, 138); fill-rule: nonzero; fill: rgb(54, 84, 138); paint-order: stroke; transform-box: fill-box; transform-origin: 50% 50%;" cx="178.723" cy="51.444" rx="2.289" ry="2.758" transform="matrix(-0.999777, 0.021139, -0.021139, -0.999777, -2.461582, -1.215376)"/>
+    <ellipse style="fill: rgb(0, 0, 0); stroke: none;" cx="177.282" cy="50.49" rx="1.385" ry="1.712"/>
+    <ellipse style="fill: rgb(216, 216, 216); stroke: none;" cx="177.705" cy="-50.747" rx="0.565" ry="0.575" transform="matrix(1, 0, 0, -1, 0, 0)"/>
+    <ellipse style="stroke: rgb(54, 84, 138); fill-rule: nonzero; fill: rgb(54, 84, 138); paint-order: stroke; stroke-width: 1; transform-origin: 178.723px 51.444px;" cx="178.723" cy="51.444" rx="2.289" ry="2.864" transform="matrix(-0.999777, 0.021139, -0.021139, -0.999777, 34.486598, -1.169112)"/>
+    <ellipse style="fill: rgb(0, 0, 0); stroke: none; stroke-width: 1;" cx="214.206" cy="50.677" rx="1.385" ry="1.678"/>
+    <ellipse style="fill: rgb(216, 216, 216); stroke: none; stroke-width: 1;" cx="214.742" cy="-50.951" rx="0.565" ry="0.575" transform="matrix(1, 0, 0, -1, 0, 0)"/>
+  </g>
+</svg>
