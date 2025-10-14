@@ -1,10 +1,10 @@
 "use client";
 import { Sliders, Smartphone, Workflow, Zap } from "lucide-react";
 import Container from "./Container";
-import FeatureCard from "./FeatureCard";
+import FeatureCard, { FeatureCardProps } from "./FeatureCard";
 
 const Features = () => {
-  const featuresList = [
+  const featuresList: FeatureCardProps[] = [
     {
       icon: Zap,
       title: "Smooth Motion",
@@ -33,7 +33,7 @@ const Features = () => {
   return (
     <section id="features" className="py-12 md:py-16">
       <Container>
-        <div className="grid gap-4 md:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {featuresList.map((feature) => (
             <FeatureCard key={feature.title} {...feature} />
           ))}

@@ -7,8 +7,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "EMDR Exercise",
-  description: "Local bilateral visual/audio tool (not medical advice).",
+  title: "Spoko - the practical neuro tool",
+  description: "Bilateral stimulation tool for EMDR therapy",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 export const viewport: Viewport = { colorScheme: "dark light" };
 
@@ -28,7 +31,6 @@ export default async function RootLayout({
   const initialHtmlClass = await computeInitialClassFromCookie();
   return (
     <html lang="en" className={initialHtmlClass} suppressHydrationWarning>
-      <link rel="icon" href="/favicon.ico" sizes="any" />
       <body className="min-h-screen bg-white text-zinc-900 dark:bg-black dark:text-white antialiased flex flex-col">
         <ThemeProvider />
         <Header />
