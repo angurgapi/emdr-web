@@ -13,13 +13,13 @@ function Hero() {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_50%_0%,rgba(120,119,198,0.25),rgba(255,255,255,0))]" />
       <Container>
         <div className="py-8 md:py-14">
-          <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-gray-600 bg-white/60 backdrop-blur">
+          <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-gray-600 bg-white/60 backdrop-blur dark:bg-black/60 dark:text-gray-300">
             <Sparkles className="h-3.5 w-3.5" /> Minimal • Calm • Open
           </div>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
             Bilateral Stimulation, made simple.
           </h1>
-          <p className="mt-4 max-w-2xl text-gray-600 md:text-lg">
+          <p className="mt-4 max-w-2xl text-gray-600 md:text-lg dark:text-gray-300">
             A tiny, focused BLS playground for relaxation exercises: smooth
             motion, fullscreen, keyboard controls. Built to be distraction‑free
             and delightful.
@@ -47,7 +47,7 @@ function WhatIs() {
         <h2 className="text-2xl font-semibold md:text-3xl">
           What is bilateral stimulation?
         </h2>
-        <p className="mt-4 max-w-2xl text-gray-600 md:text-lg">
+        <p className="mt-4 max-w-2xl text-gray-600 md:text-lg dark:text-gray-300">
           Bilateral stimulation (BLS) is a part of EMDR (Eye Movement
           Desensitization and Reprocessing) therapy. This technique is used to
           help people process and integrate traumatic memories. It involves

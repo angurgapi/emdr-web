@@ -102,7 +102,7 @@ export default function Demo() {
   return (
     <section id="demo" className="py-10">
       <Container>
-        <div className="rounded-3xl border bg-white p-6 shadow-sm">
+        <div className="rounded-3xl border bg-white p-6 shadow-sm dark:bg-gray-800">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="text-lg font-medium">Live Demo</div>
             <div className="flex flex-wrap items-center gap-2 text-sm">

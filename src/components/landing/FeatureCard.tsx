@@ -10,7 +10,7 @@ const FeatureCard = (feature: FeatureCardProps) => {
     <div className="w-full flex flex-col rounded-2xl border bg-white p-5 shadow-sm">
       <div className="flex items-center gap-2">
         <div className={`rounded-xl border p-2 ${feature.color}`}>
-          <feature.icon className="h-5 w-5" />
+          <feature.icon className="h-5 w-5 dark:text-gray-600" />
         </div>
         <h3 className="font-medium">{feature.title}</h3>
       </div>
