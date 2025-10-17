@@ -3,6 +3,13 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import { Button } from "../ui/button";
 import Container from "./Container";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function Demo() {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -99,37 +106,40 @@ export default function Demo() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="text-lg font-medium">Live Demo</div>
             <div className="flex flex-wrap items-center gap-2 text-sm">
-              <select
-                aria-label="Direction"
-                className="rounded-xl border px-3 py-2"
-                value={dir}
-                onChange={(e) => setDir(e.target.value as "x" | "y" | "xy")}
+              <Select
+                onValueChange={(value) => setDir(value as "x" | "y" | "xy")}
               >
-                <option value="x">Horizontal</option>
-                <option value="y">Vertical</option>
-                <option value="xy">Diagonal</option>
-              </select>
-              <select
-                aria-label="Size"
-                className="rounded-xl border px-3 py-2"
-                value={size}
-                onChange={(e) => setSize(parseInt(e.target.value, 10))}
-              >
-                <option value={12}>XS</option>
-                <option value={18}>S</option>
-                <option value={24}>M</option>
-                <option value={32}>L</option>
-              </select>
-              <select
-                aria-label="Speed"
-                className="rounded-xl border px-3 py-2"
-                value={speed}
-                onChange={(e) => setSpeed(parseFloat(e.target.value))}
-              >
-                <option value={1.6}>Calm</option>
-                <option value={1.2}>Default</option>
-                <option value={0.8}>Fast</option>
-              </select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select direction" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="x">Horizontal</SelectItem>
+                  <SelectItem value="y">Vertical</SelectItem>
+                  <SelectItem value="xy">Diagonal</SelectItem>
+                </SelectContent>
+              </Select>
+              <Select onValueChange={(value) => setSize(parseInt(value, 10))}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select size" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={"12"}>XS</SelectItem>
+                  <SelectItem value={"18"}>S</SelectItem>
+                  <SelectItem value={"24"}>M</SelectItem>
+                  <SelectItem value={"32"}>L</SelectItem>
+                </SelectContent>
+              </Select>
+              <Select onValueChange={(value) => setSpeed(parseFloat(value))}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select speed" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value={"1.6"}>Calm</SelectItem>
+                  <SelectItem value={"1.2"}>Default</SelectItem>
+                  <SelectItem value={"0.8"}>Fast</SelectItem>
+                </SelectContent>
+              </Select>
+
               <Button onClick={togglePlay} className="ml-1">
                 {playing ? "Pause" : "Play"}
               </Button>
