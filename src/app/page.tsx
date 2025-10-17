@@ -48,7 +48,7 @@ function CTA() {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_70%_at_100%_0%,rgba(255,255,255,0.12),transparent)]" />
           <div className="relative z-10 p-8 md:p-12">
             <h2 className="text-2xl font-semibold md:text-3xl">
-              Start your calm BLS experience right now.
+              Start your calm BLS experience right now with Spoko.
             </h2>
             <p className="mt-2 max-w-2xl text-white/80">
               No registration, no tracking, no distractions.
@@ -67,7 +67,7 @@ function CTA() {
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white dark:bg-gray-900">
       <Hero />
       <Features />
       <Demo />

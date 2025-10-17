@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import { Button } from "../ui/button";
@@ -45,7 +45,7 @@ export default function Demo() {
     const maxY = Math.max(0, h - size);
     const base = {
       ease: "linear" as const,
-      repeat: Infinity as const,
+      repeat: Infinity,
       repeatType: "reverse" as const,
       duration: speed,
     };
@@ -54,13 +54,21 @@ export default function Demo() {
       controls.start({
         x: [0, maxX],
         y: h / 2 - size / 2,
-        transition: base,
+        transition: {
+          ...base,
+          x: { ...base },
+          y: { duration: 0 },
+        },
       });
     } else if (dir === "y") {
       controls.start({
         y: [0, maxY],
         x: w / 2 - size / 2,
-        transition: base,
+        transition: {
+          ...base,
+          y: { ...base },
+          x: { duration: 0 },
+        },
       });
     } else {
       controls.start({

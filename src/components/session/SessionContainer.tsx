@@ -23,6 +23,7 @@ const SessionBox = () => {
   const { isFullscreen, toggle } = useFullScreen<HTMLDivElement>();
 
   const boxRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const moverRef = useRef<HTMLDivElement>(null);
   const ballClassRef = useRef<Ball | null>(null);
 
@@ -136,23 +137,29 @@ const SessionBox = () => {
 
   return (
     <div
-      ref={boxRef}
-      className="relative w-full h-full rounded-xl max-h-[80vh] overflow-hidden"
-      style={{ backgroundColor: bgColor }}
+      className={`w-full h-full relative pt-[50px] ${
+        isFullscreen ? "" : "max-h-[85vh]"
+      }`}
+      ref={wrapperRef}
     >
-      <div
-        ref={moverRef}
-        className="absolute top-0 left-0 will-change-transform"
-        style={{ transform: "translate3d(0,0,0)" }}
-      >
-        <SessionBall ballColor={ballColor} ballSize={ballSize} />
-      </div>
-
-      <div className="absolute top-2 right-[50px] flex gap-2">
+      <div className="panelcontrol absolute w-full top-2 right-2 flex gap-2 justify-end ml-[50px]">
         <SessionControls />
-        <Button onClick={() => toggle(boxRef.current)} data-ignore-pause>
+        <Button onClick={() => toggle(wrapperRef.current)} data-ignore-pause>
           {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
         </Button>
+      </div>
+      <div
+        ref={boxRef}
+        className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center"
+        style={{ backgroundColor: bgColor }}
+      >
+        <div
+          ref={moverRef}
+          className="absolute top-0 left-0 will-change-transform"
+          style={{ transform: "translate3d(0,0,0)" }}
+        >
+          <SessionBall ballColor={ballColor} ballSize={ballSize} />
+        </div>
       </div>
     </div>
   );

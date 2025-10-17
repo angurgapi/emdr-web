@@ -1,3 +1,5 @@
+import { soundService } from "@/lib/soundService";
+
 export type Direction =
     | "leftToRight"
     | "topToBottom"
@@ -160,8 +162,16 @@ export class Ball {
     moveHorizontal(dt: number) {
         const { minX, maxX } = this._bounds;
         this.cx += this.dirX * this.speedX * dt;
-        if (this.cx <= minX) { this.cx = minX; this.dirX = 1; }
-        else if (this.cx >= maxX) { this.cx = maxX; this.dirX = -1; }
+        if (this.cx <= minX) {
+            this.cx = minX;
+            this.dirX = 1;
+            soundService.play();
+        }
+        else if (this.cx >= maxX) {
+            this.cx = maxX;
+            this.dirX = -1;
+            soundService.play();
+        }
     }
 
     moveVertical(dt: number) {
