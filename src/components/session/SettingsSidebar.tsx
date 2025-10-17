@@ -1,14 +1,16 @@
 "use client";
-
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
 } from "@/components/ui/sidebar";
-import { useSessionSettings } from "@/store/sessionSettings";
+import {
+  AudioSound,
+  BallDirection,
+  useSessionSettings,
+} from "@/store/sessionSettings";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useEffect } from "react";
@@ -18,6 +20,8 @@ import {
   MoveHorizontal,
   MoveVertical,
 } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
+import { audio } from "framer-motion/client";
 
 export function SettingsSidebar() {
   const {
@@ -31,9 +35,31 @@ export function SettingsSidebar() {
     ballSize,
     ballDirection,
     setBallDirection,
+    isSoundOn,
+    setSoundOn,
+    audioSound,
+    setAudioSound,
   } = useSessionSettings();
 
   const sizemap: Record<string, number> = { s: 16, m: 24, l: 32, xl: 48 };
+  const directionOptions = [
+    {
+      value: "leftToRight",
+      icon: <MoveHorizontal />,
+    },
+    {
+      value: "topToBottom",
+      icon: <MoveVertical />,
+    },
+    {
+      value: "diagLeftToRight",
+      icon: <MoveDiagonal2 />,
+    },
+    {
+      value: "diagRightToLeft",
+      icon: <MoveDiagonal />,
+    },
+  ];
 
   // useEffect(() => {
   //   setBallSize(sizemap["m"]);
@@ -67,9 +93,7 @@ export function SettingsSidebar() {
             </div>
 
             <div className="flex flex-col gap-2 mt-4">
-              <label htmlFor="ballSpeed" className="font-semibold">
-                BLS speed
-              </label>
+              <span className="font-semibold">BLS speed</span>
               <div className="flex gap-2 items-center">
                 {[0.5, 1, 1.5, 2].map((speed) => (
                   <Button
@@ -84,9 +108,7 @@ export function SettingsSidebar() {
               </div>
             </div>
             <div className="flex flex-col gap-2 mt-4">
-              <label htmlFor="ballSpeed" className="font-semibold">
-                BLS size
-              </label>
+              <span className="font-semibold">BLS size</span>
               <div className="flex gap-2 items-center">
                 {["s", "m", "l", "xl"].map((size) => (
                   <Button
@@ -101,47 +123,44 @@ export function SettingsSidebar() {
               </div>
             </div>
             <div className="flex flex-col gap-2 mt-4">
-              <label htmlFor="ballSpeed" className="font-semibold">
-                BLS direction
-              </label>
+              <span className="font-semibold">BLS direction</span>
               <div className="flex gap-2 items-center">
-                <Button
-                  size="sm"
-                  variant={
-                    ballDirection === "leftToRight" ? "default" : "outline"
-                  }
-                  onClick={() => setBallDirection("leftToRight")}
-                >
-                  <MoveHorizontal />
-                </Button>
-                <Button
-                  size="sm"
-                  variant={
-                    ballDirection === "topToBottom" ? "default" : "outline"
-                  }
-                  onClick={() => setBallDirection("topToBottom")}
-                >
-                  <MoveVertical />
-                </Button>
-                <Button
-                  size="sm"
-                  variant={
-                    ballDirection === "diagLeftToRight" ? "default" : "outline"
-                  }
-                  onClick={() => setBallDirection("diagLeftToRight")}
-                >
-                  <MoveDiagonal2 />
-                </Button>
-                <Button
-                  size="sm"
-                  variant={
-                    ballDirection === "diagRightToLeft" ? "default" : "outline"
-                  }
-                  onClick={() => setBallDirection("diagRightToLeft")}
-                >
-                  <MoveDiagonal />
-                </Button>
+                {directionOptions.map((option) => (
+                  <Button
+                    size="sm"
+                    variant={
+                      ballDirection === option.value ? "default" : "outline"
+                    }
+                    key={option.value}
+                    onClick={() =>
+                      setBallDirection(option.value as BallDirection)
+                    }
+                  >
+                    {option.icon}
+                  </Button>
+                ))}
               </div>
+              <div className="flex flex-col gap-2 mt-4">
+                <span className="font-semibold">Sound on/off</span>
+                <Switch checked={isSoundOn} onCheckedChange={setSoundOn} />
+              </div>
+              {isSoundOn && (
+                <div className="flex flex-col gap-2 mt-4">
+                  <span className="font-semibold">Sound type</span>
+                  <div className="flex gap-2 items-center">
+                    {["snap", "heartbeat", "beep"].map((sound) => (
+                      <Button
+                        size="sm"
+                        variant={sound === audioSound ? "default" : "outline"}
+                        key={sound}
+                        onClick={() => setAudioSound(sound as AudioSound)}
+                      >
+                        {sound}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </SidebarGroupContent>
         </SidebarGroup>

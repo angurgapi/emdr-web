@@ -19,7 +19,6 @@ export function SettingsSidebarTrigger({
       onClick={toggleSidebar}
       className={cn(className)}
       {...props}
-      data-ignore-pause
     >
       <SettingsIcon />
     </Button>

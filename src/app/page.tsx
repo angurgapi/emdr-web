@@ -67,7 +67,7 @@ function CTA() {
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white dark:bg-gray-900">
       <Hero />
       <Features />
       <Demo />

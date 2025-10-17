@@ -2,7 +2,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export type AudioSound = "snap" | "heartbit" | "gong" | "none";
+export type AudioSound = "snap" | "heartbeat" | "beep";
 export type BallDirection = "leftToRight" | "topToBottom" | "diagLeftToRight" | "diagRightToLeft";
 
 type SessionSettingsState = {
@@ -12,6 +12,8 @@ type SessionSettingsState = {
     ballSize: number; // in px
     ballDirection: BallDirection;
     audioSound: AudioSound;
+    isSoundOn: boolean;
+    volume: number;
 
     setBallColor: (color: string) => void;
     setBgColor: (color: string) => void;
@@ -19,20 +21,24 @@ type SessionSettingsState = {
     setBallSize: (size: number) => void;
     setBallDirection: (direction: BallDirection) => void;
     setAudioSound: (sound: AudioSound) => void;
-
+    setSoundOn: (on: boolean) => void;
+    setVolume: (volume: number) => void;
+    setAudioSettings: (settings: Partial<Pick<SessionSettingsState, "audioSound" | "isSoundOn" | "volume">>) => void;
     setSettings: (partial: Partial<Pick<SessionSettingsState,
-        "ballColor" | "bgColor" | "ballSpeed" | "audioSound" | "ballSize" | "ballDirection"
+        "ballColor" | "bgColor" | "ballSpeed" | "audioSound" | "ballSize" | "ballDirection" | "isSoundOn"
     >>) => void;
     reset: () => void;
 };
 
-const DEFAULT_SETTINGS: Pick<SessionSettingsState, "ballColor" | "bgColor" | "ballSpeed" | "ballSize" | "audioSound" | "ballDirection"> = {
-    ballColor: "#22d3ee",
+const DEFAULT_SETTINGS: Pick<SessionSettingsState, "ballColor" | "bgColor" | "ballSpeed" | "ballSize" | "audioSound" | "ballDirection" | "isSoundOn" | "volume"> = {
+    ballColor: "#ffffff",
     bgColor: "#000000",
     ballSpeed: 1,
     ballSize: 24,
-    audioSound: "none",
+    audioSound: "snap",
     ballDirection: "leftToRight",
+    isSoundOn: true,
+    volume: 0.3
 };
 
 export const useSessionSettings = create<SessionSettingsState>()(
@@ -46,6 +52,9 @@ export const useSessionSettings = create<SessionSettingsState>()(
             setBallSize: (size) => set({ ballSize: size }),
             setAudioSound: (sound) => set({ audioSound: sound }),
             setBallDirection: (direction) => set({ ballDirection: direction }),
+            setSoundOn: (on) => set({ isSoundOn: on }),
+            setVolume: (volume) => set({ volume }),
+            setAudioSettings: (settings) => set(settings),
 
             setSettings: (partial) => set(partial),
             reset: () => set({ ...DEFAULT_SETTINGS }),
@@ -53,3 +62,5 @@ export const useSessionSettings = create<SessionSettingsState>()(
         { name: "session-settings" }
     )
 );
+
+export const getSessionSettings = () => useSessionSettings.getState();

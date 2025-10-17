@@ -136,19 +136,21 @@ const SessionBox = () => {
   }, [isMovementActive, pause, start]);
 
   return (
-    <div className="w-full h-full relative pt-[50px]" ref={wrapperRef}>
+    <div
+      className={`w-full h-full relative pt-[50px] ${
+        isFullscreen ? "" : "max-h-[85vh]"
+      }`}
+      ref={wrapperRef}
+    >
       <div className="panelcontrol absolute w-full top-2 right-2 flex gap-2 justify-end ml-[50px]">
         <SessionControls />
-        {/* <Button onClick={() => toggle(boxRef.current)} data-ignore-pause>
-          {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
-        </Button> */}
         <Button onClick={() => toggle(wrapperRef.current)} data-ignore-pause>
           {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
         </Button>
       </div>
       <div
         ref={boxRef}
-        className="relative w-full h-full rounded-xl max-h-[80vh] overflow-hidden"
+        className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center"
         style={{ backgroundColor: bgColor }}
       >
         <div
@@ -158,13 +160,6 @@ const SessionBox = () => {
         >
           <SessionBall ballColor={ballColor} ballSize={ballSize} />
         </div>
-
-        {/* <div className="absolute top-2 right-[50px] flex gap-2">
-          <SessionControls />
-          <Button onClick={() => toggle(boxRef.current)} data-ignore-pause>
-            {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
-          </Button>
-        </div> */}
       </div>
     </div>
   );
