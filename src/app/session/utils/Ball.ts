@@ -115,7 +115,7 @@ export class Ball {
         this.ro = null;
         if (this._onFS) {
             document.removeEventListener("fullscreenchange", this._onFS);
-            document.removeEventListener("webkitfullscreenchange", this._onFS as any);
+            document.removeEventListener("webkitfullscreenchange", this._onFS as EventListener);
             this._onFS = undefined;
         }
         if (this._onResize) {
