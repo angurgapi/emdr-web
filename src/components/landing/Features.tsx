@@ -31,7 +31,7 @@ const Features = () => {
     },
   ];
   return (
-    <section id="features" className="py-12 md:py-16">
+    <section id="features" className="py-4 md:py-6">
       <Container>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {featuresList.map((feature) => (

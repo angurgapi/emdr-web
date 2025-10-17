@@ -42,7 +42,7 @@ function Hero() {
 
 function CTA() {
   return (
-    <section className="py-16">
+    <section className="py-10">
       <Container>
         <div className="relative overflow-hidden rounded-3xl border bg-black text-white">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_70%_at_100%_0%,rgba(255,255,255,0.12),transparent)]" />
