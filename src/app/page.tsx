@@ -40,6 +40,27 @@ function Hero() {
   );
 }
 
+function WhatIs() {
+  return (
+    <section className="py-10">
+      <Container>
+        <h2 className="text-2xl font-semibold md:text-3xl">
+          What is bilateral stimulation?
+        </h2>
+        <p className="mt-4 max-w-2xl text-gray-600 md:text-lg">
+          Bilateral stimulation (BLS) is a part of EMDR (Eye Movement
+          Desensitization and Reprocessing) therapy. This technique is used to
+          help people process and integrate traumatic memories. It involves
+          alternating sensory input, such as visual or auditory stimuli, to
+          facilitate emotional regulation and promote healing. Tauma survuivors
+          usually notice first improvements in sleep quality and reduced anxiety
+          levels after 3-6 sessions.
+        </p>
+      </Container>
+    </section>
+  );
+}
+
 function CTA() {
   return (
     <section className="py-10">
@@ -69,6 +90,7 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-900">
       <Hero />
+      <WhatIs />
       <Features />
       <Demo />
       <CTA />
