@@ -144,7 +144,11 @@ const SessionBox = () => {
     >
       <div className="panelcontrol absolute w-full top-2 right-2 flex gap-2 justify-end ml-[50px]">
         <SessionControls />
-        <Button onClick={() => toggle(wrapperRef.current)} data-ignore-pause>
+        <Button
+          className="hidden md:block"
+          onClick={() => toggle(wrapperRef.current)}
+          data-ignore-pause
+        >
           {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
         </Button>
       </div>
