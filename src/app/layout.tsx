@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Spoko - the practical neuro tool",
+  title: "Spoko | Bilateral Stimulation | EMDR Online",
   description: "Bilateral stimulation tool for EMDR therapy",
   icons: {
     icon: "/favicon.ico",
