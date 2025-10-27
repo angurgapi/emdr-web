@@ -8,6 +8,7 @@ import SessionControls from "./SessionControls";
 import SessionBall from "./SessionBall";
 import { Ball } from "../../app/session/utils/Ball";
 import SessionTimer from "./SessionTimer";
+import { useSidebar } from "@/components/ui/sidebar";
 
 const ONE_WAY_TIME_1X = 1.2;
 
@@ -22,6 +23,8 @@ const SessionBox = () => {
 
   const { isMovementActive, resetToken, pause, start } = useSession();
   const { isFullscreen, toggle } = useFullScreen<HTMLDivElement>();
+  const { open } = useSidebar();
+  console.log("open sidebar from session box", open);
 
   const boxRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -143,7 +146,13 @@ const SessionBox = () => {
       }`}
       ref={wrapperRef}
     >
-      <div className="panelcontrol absolute w-full top-2 right-2 flex gap-2 justify-between pl-[80px]">
+      <div
+        className={`
+    panelcontrol absolute w-full top-2 right-2 flex gap-2 justify-between 
+    transition-all duration-300
+    ${open ? "pl-[10px]" : "pl-[60px]"}
+  `}
+      >
         <SessionTimer />
         <div className="flex items-center gap-2 justify-end">
           <SessionControls />
