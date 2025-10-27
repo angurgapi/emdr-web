@@ -5,7 +5,7 @@ type Session = {
     isMovementActive: boolean;
     resetToken: number;
     elapsedTime: number;
-    start: (duration?: SessionDuration) => void;
+    start: () => void;
     pause: () => void;
     stop: () => void;
     syncDuration: (duration: SessionDuration) => void;
