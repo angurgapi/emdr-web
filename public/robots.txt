@@ -1,0 +1,15 @@
+# robots.txt for spoko.help
+# Allow indexing of all public pages
+# Last updated: 2025-10-27
+
+User-agent: *
+Allow: /
+Allow: /session
+Allow: /about
+Allow: /privacy
+
+# Block internal API calls if any exist
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://spoko.help/sitemap.xml
