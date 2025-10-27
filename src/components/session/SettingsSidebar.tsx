@@ -9,6 +9,7 @@ import {
 import {
   AudioSound,
   BallDirection,
+  SessionDuration,
   useSessionSettings,
 } from "@/store/sessionSettings";
 import { Input } from "../ui/input";
@@ -39,6 +40,8 @@ export function SettingsSidebar() {
     setSoundOn,
     audioSound,
     setAudioSound,
+    sessionDuration,
+    setSessionDuration,
   } = useSessionSettings();
 
   const sizemap: Record<string, number> = { s: 16, m: 24, l: 32, xl: 48 };
@@ -60,7 +63,15 @@ export function SettingsSidebar() {
       icon: <MoveDiagonal />,
     },
   ];
-
+  const durationOptions = [
+    { value: "infinite", label: "Infinite" },
+    { value: "20m", label: "20 min" },
+    { value: "1h", label: "1 h" },
+    // {
+    //   value: "2m",
+    //   label: "2 min",
+    // },
+  ];
   // useEffect(() => {
   //   setBallSize(sizemap["m"]);
   // }, [setBallSize]);
@@ -161,6 +172,23 @@ export function SettingsSidebar() {
                   </div>
                 </div>
               )}
+              <div className="flex flex-col gap-2 mt-4">
+                <span className="font-semibold">Session duration</span>
+                {durationOptions.map((option) => (
+                  <Button
+                    size="sm"
+                    key={option.value}
+                    variant={
+                      sessionDuration === option.value ? "default" : "outline"
+                    }
+                    onClick={() => {
+                      setSessionDuration(option.value as SessionDuration);
+                    }}
+                  >
+                    {option.label}
+                  </Button>
+                ))}
+              </div>
             </div>
           </SidebarGroupContent>
         </SidebarGroup>

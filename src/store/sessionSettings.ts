@@ -4,6 +4,7 @@ import { persist } from "zustand/middleware";
 
 export type AudioSound = "snap" | "heartbeat" | "beep";
 export type BallDirection = "leftToRight" | "topToBottom" | "diagLeftToRight" | "diagRightToLeft";
+export type SessionDuration = "infinite" | "20m" | "1h" | "2m" | number;
 
 type SessionSettingsState = {
     ballColor: string;
@@ -14,6 +15,7 @@ type SessionSettingsState = {
     audioSound: AudioSound;
     isSoundOn: boolean;
     volume: number;
+    sessionDuration: SessionDuration;
 
     setBallColor: (color: string) => void;
     setBgColor: (color: string) => void;
@@ -24,13 +26,14 @@ type SessionSettingsState = {
     setSoundOn: (on: boolean) => void;
     setVolume: (volume: number) => void;
     setAudioSettings: (settings: Partial<Pick<SessionSettingsState, "audioSound" | "isSoundOn" | "volume">>) => void;
+    setSessionDuration: (duration: SessionDuration) => void;
     setSettings: (partial: Partial<Pick<SessionSettingsState,
         "ballColor" | "bgColor" | "ballSpeed" | "audioSound" | "ballSize" | "ballDirection" | "isSoundOn"
     >>) => void;
     reset: () => void;
 };
 
-const DEFAULT_SETTINGS: Pick<SessionSettingsState, "ballColor" | "bgColor" | "ballSpeed" | "ballSize" | "audioSound" | "ballDirection" | "isSoundOn" | "volume"> = {
+const DEFAULT_SETTINGS: Pick<SessionSettingsState, "ballColor" | "bgColor" | "ballSpeed" | "ballSize" | "audioSound" | "ballDirection" | "isSoundOn" | "volume" | "sessionDuration"> = {
     ballColor: "#ffffff",
     bgColor: "#000000",
     ballSpeed: 1,
@@ -38,7 +41,8 @@ const DEFAULT_SETTINGS: Pick<SessionSettingsState, "ballColor" | "bgColor" | "ba
     audioSound: "snap",
     ballDirection: "leftToRight",
     isSoundOn: true,
-    volume: 0.3
+    volume: 0.3,
+    sessionDuration: "infinite",
 };
 
 export const useSessionSettings = create<SessionSettingsState>()(
@@ -55,6 +59,7 @@ export const useSessionSettings = create<SessionSettingsState>()(
             setSoundOn: (on) => set({ isSoundOn: on }),
             setVolume: (volume) => set({ volume }),
             setAudioSettings: (settings) => set(settings),
+            setSessionDuration: (duration) => set({ sessionDuration: duration }),
 
             setSettings: (partial) => set(partial),
             reset: () => set({ ...DEFAULT_SETTINGS }),

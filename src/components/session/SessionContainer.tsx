@@ -7,6 +7,7 @@ import { Button } from "../ui/button";
 import SessionControls from "./SessionControls";
 import SessionBall from "./SessionBall";
 import { Ball } from "../../app/session/utils/Ball";
+import SessionTimer from "./SessionTimer";
 
 const ONE_WAY_TIME_1X = 1.2;
 
@@ -142,15 +143,18 @@ const SessionBox = () => {
       }`}
       ref={wrapperRef}
     >
-      <div className="panelcontrol absolute w-full top-2 right-2 flex gap-2 justify-end ml-[50px]">
-        <SessionControls />
-        <Button
-          className="hidden md:block"
-          onClick={() => toggle(wrapperRef.current)}
-          data-ignore-pause
-        >
-          {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
-        </Button>
+      <div className="panelcontrol absolute w-full top-2 right-2 flex gap-2 justify-between pl-[80px]">
+        <SessionTimer />
+        <div className="flex items-center gap-2 justify-end">
+          <SessionControls />
+          <Button
+            className="hidden md:block"
+            onClick={() => toggle(wrapperRef.current)}
+            data-ignore-pause
+          >
+            {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+          </Button>
+        </div>
       </div>
       <div
         ref={boxRef}
