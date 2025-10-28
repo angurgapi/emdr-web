@@ -20,6 +20,7 @@ import {
   MoveDiagonal2,
   MoveHorizontal,
   MoveVertical,
+  Infinity,
 } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { audio } from "framer-motion/client";
@@ -64,7 +65,7 @@ export function SettingsSidebar() {
     },
   ];
   const durationOptions = [
-    { value: "infinite", label: "Infinite" },
+    { value: "infinite", label: "∞" },
     { value: "20m", label: "20 min" },
     { value: "1h", label: "1 h" },
     // {
@@ -174,20 +175,22 @@ export function SettingsSidebar() {
               )}
               <div className="flex flex-col gap-2 mt-4">
                 <span className="font-semibold">Session duration</span>
-                {durationOptions.map((option) => (
-                  <Button
-                    size="sm"
-                    key={option.value}
-                    variant={
-                      sessionDuration === option.value ? "default" : "outline"
-                    }
-                    onClick={() => {
-                      setSessionDuration(option.value as SessionDuration);
-                    }}
-                  >
-                    {option.label}
-                  </Button>
-                ))}
+                <div className="flex gap-2 items-center">
+                  {durationOptions.map((option) => (
+                    <Button
+                      size="sm"
+                      key={option.value}
+                      variant={
+                        sessionDuration === option.value ? "default" : "outline"
+                      }
+                      onClick={() => {
+                        setSessionDuration(option.value as SessionDuration);
+                      }}
+                    >
+                      {option.label}
+                    </Button>
+                  ))}
+                </div>
               </div>
             </div>
           </SidebarGroupContent>
