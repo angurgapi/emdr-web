@@ -52,7 +52,7 @@ function WhatIs() {
           Desensitization and Reprocessing) therapy. This technique is used to
           help people process and integrate traumatic memories. It involves
           alternating sensory input, such as visual or auditory stimuli, to
-          facilitate emotional regulation and promote healing. Tauma survuivors
+          facilitate emotional regulation and promote healing. Trauma survuivors
           usually notice first improvements in sleep quality and reduced anxiety
           levels after 3-6 sessions.
         </p>

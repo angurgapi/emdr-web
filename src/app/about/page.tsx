@@ -1,4 +1,9 @@
-"use client";
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "About Spoko.help - Free EMDR Tool",
+  description:
+    "Spoko.help was created to make bilateral stimulation simple and accessible for everyone, absolutely for free",
+};
 
 export default function AboutPage() {
   return (

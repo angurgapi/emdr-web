@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Privacy Policy | Spoko.help",
+  description:
+    "This Privacy Policy explains how spoko.help handles your data when you use our website and our free BLS (Bilateral Stimulation) tool",
+};
 export default function PrivacyPage() {
   return (
     <main className="max-w-2xl mx-auto p-6 text-gray-800">
