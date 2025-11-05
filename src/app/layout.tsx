@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 import { THEME_COOKIE } from "@/lib/theme";
 import ThemeProvider from "@/components/ThemeProvider";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Spoko | Bilateral Stimulation | EMDR Online",
@@ -33,9 +32,7 @@ export default async function RootLayout({
     <html lang="en" className={initialHtmlClass} suppressHydrationWarning>
       <body className="min-h-screen bg-white text-zinc-900 dark:bg-black dark:text-white antialiased flex flex-col">
         <ThemeProvider />
-        <Header />
-        <main className="flex-1 pt-12">{children}</main>
-        <Footer />
+        <div id="root" className="flex flex-col flex-1 pt-12 min-h-screen">{children}</div>
       </body>
     </html>
   );

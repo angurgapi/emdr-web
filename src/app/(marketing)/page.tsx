@@ -1,5 +1,3 @@
-"use client";
-import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
 import Demo from "@/components/landing/Demo";
@@ -14,7 +12,8 @@ function Hero() {
       <Container>
         <div className="py-8 md:py-14">
           <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-gray-600 bg-white/60 backdrop-blur dark:bg-black/60 dark:text-gray-300">
-            <Sparkles className="h-3.5 w-3.5" /> Minimal • Calm • Open
+            <Sparkles className="h-3.5 w-3.5 text-blue-800 dark:text-yellow-100" />{" "}
+            Minimal • Calm • Open
           </div>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
             Bilateral Stimulation, made simple.

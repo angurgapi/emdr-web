@@ -156,9 +156,8 @@ export default function Demo() {
               style={{ width: size, height: size }}
             />
           </div>
-          <p className="mt-3 text-xs text-gray-500">
-            Tip: press Space to pause/resume when on session page. This demo
-            uses a simple keyframe loop for a calm preview.
+          <p className="mt-3 text-sm text-gray-500">
+            This demo uses a simplified animation loop for preview purposes.
           </p>
         </div>
       </Container>

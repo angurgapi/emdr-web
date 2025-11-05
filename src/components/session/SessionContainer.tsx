@@ -24,7 +24,6 @@ const SessionBox = () => {
   const { isMovementActive, resetToken, pause, start } = useSession();
   const { isFullscreen, toggle } = useFullScreen<HTMLDivElement>();
   const { open } = useSidebar();
-  console.log("open sidebar from session box", open);
 
   const boxRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);

@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 
 const Session = () => {
   return (
-    <div className="w-full p-4 flex relative">
+    <div className="w-full p-4 pt-0 flex relative">
       <SidebarProvider defaultOpen={false}>
         <SettingsSidebar />
-        <SettingsSidebarTrigger className="absolute top-6 left-6 z-10" />
+        <SettingsSidebarTrigger className="absolute top-2 left-6 z-10" />
         <div className="w-full">
           <SessionContainer />
         </div>
