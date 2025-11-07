@@ -33,7 +33,7 @@ export function EMDRCheckpointDialog() {
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen} >
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-[500px] rounded-md">
         <DialogHeader>
           <DialogTitle>Before you begin</DialogTitle>
@@ -45,14 +45,14 @@ export function EMDRCheckpointDialog() {
           <div className="space-y-2">
             <h4 className="font-medium">✓ Get comfortable</h4>
             <p className="text-sm text-muted-foreground">
-              Find a quiet, comfortable space where you won't be disturbed.
-              Sit or lie down in a relaxed position.
+              Find a quiet, comfortable space where you won’t be disturbed. Sit
+              or lie down in a relaxed position.
             </p>
           </div>
           <div className="space-y-2">
             <h4 className="font-medium">✓ Safety first</h4>
             <p className="text-sm text-muted-foreground">
-              This tool is not a substitute for professional therapy. If you're
+              This tool is not a substitute for professional therapy. If you’re
               dealing with trauma, severe anxiety, or mental health concerns,
               please consult with a licensed therapist trained in EMDR or other
               evidence-based therapies.
@@ -69,7 +69,7 @@ export function EMDRCheckpointDialog() {
           <div className="space-y-2">
             <h4 className="font-medium">✓ Take your time</h4>
             <p className="text-sm text-muted-foreground">
-              There's no rush. Use the session duration settings to find what
+              There’s no rush. Use the session duration settings to find what
               works best for you. You can pause or stop at any time.
             </p>
           </div>
@@ -80,14 +80,13 @@ export function EMDRCheckpointDialog() {
             onClick={handleDontShowAgain}
             className="w-full sm:w-auto"
           >
-            Don't show again
+            Don’t show again
           </Button>
           <Button onClick={handleClose} className="w-full sm:w-auto">
-            I understand, let's begin
+            I understand, let’s begin
           </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
   );
 }
-
