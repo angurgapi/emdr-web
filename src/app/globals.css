@@ -81,6 +81,7 @@
   --primary: #36548a;
   /* --primary: oklch(0.67 0.12 250); */
   --primary-900: color-mix(in oklch, var(--primary) 35%, black);
+  --primary-soft: #5b8fc7;
   --secondary: #708993;
   --mint: #a1c2bd;
   --bleak: #e7f2ef;
@@ -95,6 +96,7 @@
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
+  --primary-soft: oklch(0.75 0.15 250);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -150,5 +152,68 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.439 0 0);
+  }
+}
+
+@layer utilities {
+  .bg-soft--100 {
+    background-color: color-mix(in srgb, var(--primary-soft) 15%, transparent);
+  }
+  .bg-soft--200 {
+    background-color: color-mix(in srgb, var(--primary-soft) 25%, transparent);
+  }
+  .bg-soft--300 {
+    background-color: color-mix(in srgb, var(--primary-soft) 35%, transparent);
+  }
+  .bg-soft--400 {
+    background-color: color-mix(in srgb, var(--primary-soft) 45%, transparent);
+  }
+  .bg-soft--500 {
+    background-color: color-mix(in srgb, var(--primary-soft) 55%, transparent);
+  }
+  .bg-soft--600 {
+    background-color: color-mix(in srgb, var(--primary-soft) 65%, transparent);
+  }
+  .bg-soft--700 {
+    background-color: color-mix(in srgb, var(--primary-soft) 75%, transparent);
+  }
+  .bg-soft--800 {
+    background-color: color-mix(in srgb, var(--primary-soft) 85%, transparent);
+  }
+  .bg-soft--900 {
+    background-color: var(--primary-soft);
+  }
+  .bg-primary--100 {
+    background-color: color-mix(in srgb, var(--primary) 15%, transparent);
+  }
+  .bg-primary--200 {
+    background-color: color-mix(in srgb, var(--primary) 25%, transparent);
+  }
+  .bg-primary--300 {
+    background-color: color-mix(in srgb, var(--primary) 35%, transparent);
+  }
+  .bg-primary--400 {
+    background-color: color-mix(in srgb, var(--primary) 45%, transparent);
+  }
+  .bg-primary--500 {
+    background-color: color-mix(in srgb, var(--primary) 55%, transparent);
+  }
+  .bg-primary--600 {
+    background-color: color-mix(in srgb, var(--primary) 65%, transparent);
+  }
+  .bg-primary--700 {
+    background-color: color-mix(in srgb, var(--primary) 75%, transparent);
+  }
+  .bg-primary--800 {
+    background-color: color-mix(in srgb, var(--primary) 85%, transparent);
+  }
+  .bg-primary--900 {
+    background-color: var(--primary);
+  }
+  .border-primary--200 {
+    border-color: color-mix(in srgb, var(--primary) 35%, transparent);
+  }
+  .text-primary--900 {
+    color: var(--primary);
   }
 }

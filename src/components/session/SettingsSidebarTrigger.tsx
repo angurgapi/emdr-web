@@ -17,6 +17,7 @@ export function SettingsSidebarTrigger({
     <Button
       size="icon"
       onClick={toggleSidebar}
+      variant="soft"
       className={cn(className)}
       {...props}
     >

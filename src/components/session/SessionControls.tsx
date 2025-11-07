@@ -9,16 +9,35 @@ const SessionControls = () => {
     <div className="flex gap-2 items-center">
       <div className="flex w-full gap-2">
         {isMovementActive ? (
-          <Button onClick={pause} data-ignore-pause>
+          <Button
+            onClick={pause}
+            data-ignore-pause
+            variant="soft"
+            size="icon"
+            aria-label="Pause session"
+          >
             <CirclePause />
           </Button>
         ) : (
-          <Button onClick={start} data-ignore-pause>
+          <Button
+            onClick={start}
+            data-ignore-pause
+            variant="soft"
+            size="icon"
+            aria-label="Start session"
+          >
             <CirclePlay />
           </Button>
         )}
 
-        <Button onClick={stop} data-ignore-pause disabled={!isMovementActive}>
+        <Button
+          onClick={stop}
+          data-ignore-pause
+          disabled={!isMovementActive}
+          variant="soft"
+          size="icon"
+          aria-label="Stop session"
+        >
           <CircleStop />
         </Button>
       </div>

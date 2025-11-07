@@ -159,6 +159,7 @@ const SessionBox = () => {
             className="hidden md:block"
             onClick={() => toggle(wrapperRef.current)}
             data-ignore-pause
+            variant="soft"
           >
             {isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
           </Button>

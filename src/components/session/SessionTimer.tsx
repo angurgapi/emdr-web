@@ -20,7 +20,7 @@ export default function SessionTimer() {
 
   return (
     <div>
-      <div className="border border-white/20 rounded-md px-2 py-1 text-sm bg-primary h-[36px] flex items-center justify-center text-white w-[80px]">
+      <div className="rounded-md px-2 py-1 text-sm bg-soft--900 h-[36px] flex items-center justify-center text-white dark:text-black w-[80px]">
         {<span>{formatElapsedTime(elapsedTime)}</span>}
       </div>
     </div>

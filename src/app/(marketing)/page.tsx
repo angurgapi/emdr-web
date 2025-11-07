@@ -19,19 +19,25 @@ function Hero() {
             Bilateral Stimulation, made simple.
           </h1>
           <p className="mt-4 max-w-2xl text-gray-600 md:text-lg dark:text-gray-300">
-            A tiny, focused BLS playground for relaxation exercises: smooth
-            motion, fullscreen, keyboard controls. Built to be distraction‑free
-            and delightful.
+            A tiny, focused playground for self-administered BLS: smooth motion,
+            fullscreen, keyboard controls. Built to be distraction‑free and
+            delightful.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <a href="#demo">
-              <Button size="lg">Try the Demo</Button>
-            </a>
-            <a href="#features">
-              <Button variant="ghost" size="lg">
-                See Features
+            <Link href="/session" className="text-lg font-bold">
+              <Button className="font-semibold" size="lg">
+                Start free session
               </Button>
-            </a>
+            </Link>
+            <Link href="#demo">
+              <Button
+                variant="ghost"
+                className="font-semibold text-primary--900"
+                size="lg"
+              >
+                Try the Demo
+              </Button>
+            </Link>
           </div>
         </div>
       </Container>
@@ -41,7 +47,7 @@ function Hero() {
 
 function WhatIs() {
   return (
-    <section className="py-10">
+    <section className="py-6">
       <Container>
         <h2 className="text-2xl font-semibold md:text-3xl">
           What is bilateral stimulation?
@@ -68,7 +74,7 @@ function CTA() {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_70%_at_100%_0%,rgba(255,255,255,0.12),transparent)]" />
           <div className="relative z-10 p-8 md:p-12">
             <h2 className="text-2xl font-semibold md:text-3xl">
-              Start your calm BLS experience right now with Spoko.
+              Begin your BLS experience right now with Spoko.
             </h2>
             <p className="mt-2 max-w-2xl text-white/80">
               No registration, no tracking, no distractions.

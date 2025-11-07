@@ -30,7 +30,7 @@ const Features = () => {
     },
   ];
   return (
-    <section id="features" className="py-4 md:py-6">
+    <section id="features" className="py-6 md:py-10">
       <Container>
         <h2 className="text-2xl font-semibold md:text-3xl">
           Why you might like what we offer

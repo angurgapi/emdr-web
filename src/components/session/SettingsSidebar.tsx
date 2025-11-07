@@ -66,12 +66,12 @@ export function SettingsSidebar() {
   ];
   const durationOptions = [
     { value: "infinite", label: "∞" },
+    {
+      value: "5m",
+      label: "5 min",
+    },
     { value: "20m", label: "20 min" },
     { value: "1h", label: "1 h" },
-    // {
-    //   value: "2m",
-    //   label: "2 min",
-    // },
   ];
   // useEffect(() => {
   //   setBallSize(sizemap["m"]);
