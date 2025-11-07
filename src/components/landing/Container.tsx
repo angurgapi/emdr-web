@@ -1,4 +1,3 @@
-// "use client";
 const Container = ({
   children,
   isFullWidth,
@@ -8,8 +7,8 @@ const Container = ({
 }) => {
   return (
     <div
-      className={`mx-auto w-full px-4 md:px-6 lg:px-8 ${
-        isFullWidth ? "max-w-auto" : "max-w-6xl"
+      className={`mx-auto w-full px-4  ${
+        isFullWidth ? "max-w-auto" : "max-w-6xl md:px-6 lg:px-8"
       }`}
     >
       {children}

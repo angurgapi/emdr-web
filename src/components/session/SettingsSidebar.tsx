@@ -45,7 +45,7 @@ export function SettingsSidebar() {
     setSessionDuration,
   } = useSessionSettings();
 
-  const sizemap: Record<string, number> = { s: 16, m: 24, l: 32, xl: 48 };
+  const sizemap: Record<string, number> = { s: 16, m: 24, l: 32, xl: 42 };
   const directionOptions = [
     {
       value: "leftToRight",

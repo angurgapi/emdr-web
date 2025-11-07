@@ -17,7 +17,7 @@ const ThemeToggle: FC = () => {
         <Button
           size="icon"
           onClick={set("light")}
-          className="px-2 py-1 rounded hover:bg-white/90"
+          className="px-2 py-1 rounded-full hover:bg-white/90"
           aria-label="Switch to light theme"
         >
           <SunIcon className="h-4 w-4" />
@@ -26,7 +26,7 @@ const ThemeToggle: FC = () => {
         <Button
           size="icon"
           onClick={set("dark")}
-          className="px-2 py-1 rounded hover:bg-black/80"
+          className="px-2 py-1 rounded-full hover:bg-black/80"
           aria-label="Switch to dark theme"
         >
           <MoonIcon className="h-4 w-4" />

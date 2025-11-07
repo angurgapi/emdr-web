@@ -166,7 +166,7 @@ const SessionBox = () => {
       </div>
       <div
         ref={boxRef}
-        className="relative w-full h-full rounded-xl overflow-hidden flex items-center justify-center"
+        className="relative w-full h-full rounded-md overflow-hidden flex items-center justify-center"
         style={{ backgroundColor: bgColor }}
       >
         <div

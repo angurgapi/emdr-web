@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { SettingsSidebar } from "@/components/session/SettingsSidebar";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SettingsSidebarWrapper } from "@/components/session/SettingsSidebarWrapper";
 import { SettingsSidebarTrigger } from "@/components/session/SettingsSidebarTrigger";
 import SessionContainer from "@/components/session/SessionContainer";
 
@@ -15,13 +15,13 @@ export const metadata: Metadata = {
 const Session = () => {
   return (
     <div className="w-full p-4 pt-0 flex relative">
-      <SidebarProvider defaultOpen={false}>
+      <SettingsSidebarWrapper defaultOpen={false} className="min-h-0">
         <SettingsSidebar />
         <SettingsSidebarTrigger className="absolute top-2 left-6 z-10" />
         <div className="w-full">
           <SessionContainer />
         </div>
-      </SidebarProvider>
+      </SettingsSidebarWrapper>
     </div>
   );
 };

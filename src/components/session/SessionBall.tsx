@@ -1,5 +1,4 @@
 "use client";
-import { useSessionSettings } from "@/store/sessionSettings";
 import { forwardRef } from "react";
 
 type BallProps = {

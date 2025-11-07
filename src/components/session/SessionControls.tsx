@@ -7,20 +7,21 @@ const SessionControls = () => {
 
   return (
     <div className="flex gap-2 items-center">
-      {isMovementActive ? (
-        <div className="flex w-full gap-2">
+      <div className="flex w-full gap-2">
+        {isMovementActive ? (
           <Button onClick={pause} data-ignore-pause>
             <CirclePause />
           </Button>
-          <Button onClick={stop} data-ignore-pause>
-            <CircleStop />
+        ) : (
+          <Button onClick={start} data-ignore-pause>
+            <CirclePlay />
           </Button>
-        </div>
-      ) : (
-        <Button onClick={start} data-ignore-pause>
-          <CirclePlay />
+        )}
+
+        <Button onClick={stop} data-ignore-pause disabled={!isMovementActive}>
+          <CircleStop />
         </Button>
-      )}
+      </div>
     </div>
   );
 };
