@@ -5,10 +5,12 @@ type Session = {
     isMovementActive: boolean;
     resetToken: number;
     elapsedTime: number;
+    sessionEndedByTimer: boolean;
     start: () => void;
     pause: () => void;
     stop: () => void;
     syncDuration: (duration: SessionDuration) => void;
+    clearSessionEndedFlag: () => void;
 };
 
 let intervalRef: NodeJS.Timeout | null = null;
@@ -18,8 +20,9 @@ function getDurationSeconds(duration: SessionDuration): number | null {
         case "infinite": return null;
         case "20m": return 20 * 60;
         case "1h": return 60 * 60;
+        case "5m": return 5 * 60;
         case "2m": return 2 * 60;
-        default: return duration * 60;
+        default: return typeof duration === "number" ? duration * 60 : null;
     }
 }
 
@@ -27,6 +30,7 @@ export const useSession = create<Session>((set, get) => ({
     isMovementActive: false,
     resetToken: 0,
     elapsedTime: 0,
+    sessionEndedByTimer: false,
 
     start: () => {
         const { sessionDuration } = useSessionSettings.getState();
@@ -42,7 +46,7 @@ export const useSession = create<Session>((set, get) => ({
             if (total !== null && next >= total) {
                 clearInterval(intervalRef!);
                 intervalRef = null;
-                set({ isMovementActive: false });
+                set({ isMovementActive: false, sessionEndedByTimer: true });
             }
         }, 1000);
     },
@@ -60,7 +64,12 @@ export const useSession = create<Session>((set, get) => ({
             isMovementActive: false,
             elapsedTime: 0,
             resetToken: s.resetToken + 1,
+            sessionEndedByTimer: false,
         }));
+    },
+
+    clearSessionEndedFlag: () => {
+        set({ sessionEndedByTimer: false });
     },
 
     syncDuration: (duration) => {

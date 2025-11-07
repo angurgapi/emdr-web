@@ -3,7 +3,7 @@ import { useSession } from "@/store/session";
 import { Button } from "../ui/button";
 import { CirclePause, CirclePlay, CircleStop } from "lucide-react";
 const SessionControls = () => {
-  const { start, pause, stop, isMovementActive } = useSession();
+  const { start, pause, stop, isMovementActive, elapsedTime } = useSession();
 
   return (
     <div className="flex gap-2 items-center">
@@ -33,7 +33,7 @@ const SessionControls = () => {
         <Button
           onClick={stop}
           data-ignore-pause
-          disabled={!isMovementActive}
+          disabled={elapsedTime === 0}
           variant="soft"
           size="icon"
           aria-label="Stop session"

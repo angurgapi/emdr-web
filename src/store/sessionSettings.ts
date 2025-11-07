@@ -4,7 +4,7 @@ import { persist } from "zustand/middleware";
 
 export type AudioSound = "snap" | "heartbeat" | "beep";
 export type BallDirection = "leftToRight" | "topToBottom" | "diagLeftToRight" | "diagRightToLeft";
-export type SessionDuration = "infinite" | "20m" | "1h" | "2m" | number;
+export type SessionDuration = "infinite" | "20m" | "1h" | "5m" | "2m" | number;
 
 type SessionSettingsState = {
     ballColor: string;
