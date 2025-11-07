@@ -42,7 +42,7 @@ export function SessionEndDialog() {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-[400px] rounded-md">
         <DialogHeader>
-          <DialogTitle>Time's up</DialogTitle>
+          <DialogTitle>Good job</DialogTitle>
           <DialogDescription>
             Your session has ended. Would you like to start another session with
             the same settings?
@@ -64,4 +64,3 @@ export function SessionEndDialog() {
     </Dialog>
   );
 }
-
