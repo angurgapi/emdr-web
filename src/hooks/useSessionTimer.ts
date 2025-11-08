@@ -13,7 +13,7 @@ export function useSessionTimer(duration: SessionDuration, isActive: boolean) {
             case "2m":
                 return 2 * 60;
             default:
-                return duration * 60;
+                return typeof duration === "number" ? duration * 60 : null;
         }
     }
 
