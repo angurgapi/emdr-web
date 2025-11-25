@@ -34,6 +34,7 @@ export function SessionEndDialog() {
   };
 
   const handleClose = () => {
+    stop();
     clearSessionEndedFlag();
     setOpen(false);
   };
