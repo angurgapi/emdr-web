@@ -8,7 +8,7 @@ import { EMDRCheckpointDialog } from "@/components/session/EMDRCheckpointDialog"
 import { SessionEndDialog } from "@/components/session/SessionEndDialog";
 
 export const metadata: Metadata = {
-  title: "BLS | Spoko",
+  title: "EMDR session | BLS session | Spoko",
   robots: {
     index: false,
   },
