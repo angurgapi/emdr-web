@@ -16,7 +16,7 @@ function Hero() {
             Minimal • Calm • Open
           </div>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
-            Bilateral Stimulation, made simple.
+            EMDR & Bilateral Stimulation, made simple.
           </h1>
           <p className="mt-4 max-w-2xl text-gray-600 md:text-lg dark:text-gray-300">
             A tiny, focused playground for self-administered BLS: smooth motion,
@@ -52,14 +52,15 @@ function WhatIs() {
         <h2 className="text-2xl font-semibold md:text-3xl">
           What is bilateral stimulation?
         </h2>
-        <p className="mt-4 max-w-2xl text-gray-600 md:text-lg dark:text-gray-300">
-          Bilateral stimulation (BLS) is a part of EMDR (Eye Movement
-          Desensitization and Reprocessing) therapy. This technique is used to
-          help people process and integrate traumatic memories. It involves
-          alternating sensory input, such as visual or auditory stimuli, to
-          facilitate emotional regulation and promote healing. Trauma survuivors
-          usually notice first improvements in sleep quality and reduced anxiety
-          levels after 3-6 sessions.
+        <p className="mt-4 max-w-4xl text-gray-600 md:text-lg dark:text-gray-300">
+          Bilateral stimulation (BLS) is a part of EMDR therapy. This technique
+          is used to help people process and integrate traumatic memories. It
+          involves alternating sensory input, such as visual or auditory
+          stimuli, to facilitate emotional regulation and promote healing.
+          Trauma survuivors usually notice first improvements in sleep quality
+          and reduced anxiety levels after 3-6 sessions. It is usually
+          administered by a trained therapist, but self-administered BLS can
+          also be beneficial for relaxation and stress reduction.
         </p>
       </Container>
     </section>

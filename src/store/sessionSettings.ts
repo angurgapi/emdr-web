@@ -1,6 +1,7 @@
 "use client";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { useThemeStore } from "./theme";
 
 export type AudioSound = "snap" | "heartbeat" | "beep";
 export type BallDirection = "leftToRight" | "topToBottom" | "diagLeftToRight" | "diagRightToLeft";
@@ -30,25 +31,33 @@ type SessionSettingsState = {
     setSettings: (partial: Partial<Pick<SessionSettingsState,
         "ballColor" | "bgColor" | "ballSpeed" | "audioSound" | "ballSize" | "ballDirection" | "isSoundOn"
     >>) => void;
+    syncColorsWithTheme: () => void;
     reset: () => void;
 };
 
-const DEFAULT_SETTINGS: Pick<SessionSettingsState, "ballColor" | "bgColor" | "ballSpeed" | "ballSize" | "audioSound" | "ballDirection" | "isSoundOn" | "volume" | "sessionDuration"> = {
-    ballColor: "#ffffff",
-    bgColor: "#000000",
-    ballSpeed: 1,
-    ballSize: 24,
-    audioSound: "snap",
-    ballDirection: "leftToRight",
-    isSoundOn: true,
-    volume: 0.3,
-    sessionDuration: "infinite",
-};
+const getDefaultColors = (isDark: boolean) => ({
+    bgColor: isDark ? "#000000" : "#ffffff",
+    ballColor: isDark ? "#ffffff" : "#000000",
+});
 
+const getDefaultSettings = () => {
+    const isDark = useThemeStore.getState().theme === "dark";
+
+    return {
+        ...getDefaultColors(isDark),
+        ballSpeed: 1,
+        ballSize: 36,
+        audioSound: "snap" as AudioSound,
+        ballDirection: "leftToRight" as BallDirection,
+        isSoundOn: true,
+        volume: 0.3,
+        sessionDuration: "infinite" as SessionDuration,
+    };
+};
 export const useSessionSettings = create<SessionSettingsState>()(
     persist(
-        (set) => ({
-            ...DEFAULT_SETTINGS,
+        (set, get) => ({
+            ...getDefaultSettings(),
 
             setBallColor: (color) => set({ ballColor: color }),
             setBgColor: (color) => set({ bgColor: color }),
@@ -62,10 +71,41 @@ export const useSessionSettings = create<SessionSettingsState>()(
             setSessionDuration: (duration) => set({ sessionDuration: duration }),
 
             setSettings: (partial) => set(partial),
-            reset: () => set({ ...DEFAULT_SETTINGS }),
+
+            syncColorsWithTheme: () => {
+                const state = get();
+                const currentTheme = useThemeStore.getState().theme;
+                const isDark = currentTheme === "dark";
+
+                // Get default colors for both themes
+                const lightDefaults = getDefaultColors(false);
+                const darkDefaults = getDefaultColors(true);
+
+                // Check if current colors match either theme's defaults
+                const matchesLightDefaults =
+                    state.ballColor === lightDefaults.ballColor &&
+                    state.bgColor === lightDefaults.bgColor;
+                const matchesDarkDefaults =
+                    state.ballColor === darkDefaults.ballColor &&
+                    state.bgColor === darkDefaults.bgColor;
+
+                // Only sync if colors match one of the default themes
+                if (matchesLightDefaults || matchesDarkDefaults) {
+                    set(getDefaultColors(isDark));
+                }
+            },
+
+            reset: () => set({ ...getDefaultSettings() }),
         }),
         { name: "session-settings" }
     )
 );
 
 export const getSessionSettings = () => useSessionSettings.getState();
+
+// Subscribe to theme changes and sync colors if they match defaults
+if (typeof window !== "undefined") {
+    useThemeStore.subscribe(() => {
+        useSessionSettings.getState().syncColorsWithTheme();
+    });
+}
