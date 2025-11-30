@@ -15,8 +15,8 @@ const Header: React.FC<HeaderProps> = ({ isFullWidth }) => {
           <Link href="/" className="text-lg font-bold text-[#36548A]">
             <Image
               className="dark:[filter:brightness(0)_invert(1)]"
-              src="/sp.svg"
-              alt="Spoko logo"
+              src="/emdr4u.svg"
+              alt="EMDR4U logo"
               width={55}
               height={40}
               priority

@@ -1,9 +1,9 @@
 import Container from "@/components/landing/Container";
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Privacy Policy | Spoko.help",
+  title: "Privacy Policy | EMDR4U",
   description:
-    "This Privacy Policy explains how spoko.help handles your data when you use our website and our free BLS (Bilateral Stimulation) tool",
+    "This Privacy Policy explains how EMDR4U.io handles your data when you use our website and our free BLS (Bilateral Stimulation) tool",
 };
 export default function PrivacyPage() {
   return (
@@ -12,9 +12,9 @@ export default function PrivacyPage() {
         <h1 className="text-2xl font-bold mb-4">Privacy Policy</h1>
         <p className="text-sm mb-6">Last updated: 27 October 2025</p>
         <p>
-          This Privacy Policy explains how <strong>spoko.help</strong> (“we”,
-          “our”, or “us”) handles your data when you use our website and BLS
-          (Bilateral Stimulation) tool.
+          This Privacy Policy explains how <strong>EMDR4U</strong> (“we”, “our”,
+          or “us”) handles your data when you use our website and BLS (Bilateral
+          Stimulation) tool.
         </p>
         <h2 className="text-xl font-semibold mt-6 mb-2">
           1. What information we collect
@@ -39,10 +39,10 @@ export default function PrivacyPage() {
         <p>
           Questions? Email us at{" "}
           <a
-            href="mailto:contact@spoko.help"
+            href="mailto:support@emdr4u.io"
             className="text-blue-600 underline"
           >
-            contact@spoko.help
+            support@emdr4u.io
           </a>
         </p>
       </div>

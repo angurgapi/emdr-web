@@ -9,7 +9,7 @@ const Footer: React.FC<FooterProps> = ({ isFullWidth }) => {
       <Container isFullWidth={isFullWidth}>
         <div className="flex h-12 w-full items-center justify-between">
           <div className="flex items-center gap-2">
-            <p className="text-sm text-zinc-500">&copy; Spoko.help</p>
+            <p className="text-sm text-zinc-500">&copy; EMDR4U</p>
             <p className="text-sm text-zinc-500">{new Date().getFullYear()}</p>
           </div>
           <div className="flex items-center gap-4">

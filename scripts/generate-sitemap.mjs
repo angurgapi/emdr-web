@@ -3,7 +3,7 @@ import path from "node:path";
 import { SitemapStream, streamToPromise } from "sitemap";
 import { writeFile } from "node:fs/promises";
 
-const hostname = "https://spoko.help";
+const hostname = "https://emdr4u.io";
 const appDir = path.resolve("./src/app");
 const publicDir = path.resolve("./public");
 const routes = [];

@@ -1,18 +1,18 @@
 import Container from "@/components/landing/Container";
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "About Spoko.help - Free EMDR Tool",
+  title: "About EMDR4U.io - Free EMDR Tool",
   description:
-    "Spoko.help was created to make bilateral stimulation simple and accessible for everyone, absolutely for free",
+    "EMDR4U.io was created to make bilateral stimulation simple and accessible for everyone, absolutely for free",
 };
 
 export default function AboutPage() {
   return (
     <Container>
       <div className="py-10 ">
-        <h1 className="text-3xl font-bold mb-4">About Spoko.help</h1>
+        <h1 className="text-3xl font-bold mb-4">About EMDR4U</h1>
         <p className="mb-6">
-          Spoko.help was created to make <strong>bilateral stimulation</strong>{" "}
+          EMDR4U was created to make <strong>bilateral stimulation</strong>{" "}
           simple and accessible — whether you’re curious about its calming
           effect or want to use it as part of your self-care routine. The idea
           comes from modern neuroscience and psychology, where rhythmic,
@@ -70,7 +70,7 @@ export default function AboutPage() {
         </p>
 
         <p className="text-sm text-gray-600 mt-10">
-          Note: Spoko.help is not a medical or therapeutic service. If you’re
+          Note: EMDR4U.io is not a medical or therapeutic service. If you’re
           dealing with trauma, anxiety, or mental health issues, consider
           reaching out to a licensed professional trained in EMDR or other
           evidence-based therapies.

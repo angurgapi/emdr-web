@@ -75,14 +75,14 @@ function CTA() {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_70%_at_100%_0%,rgba(255,255,255,0.12),transparent)]" />
           <div className="relative z-10 p-8 md:p-12">
             <h2 className="text-2xl font-semibold md:text-3xl">
-              Begin your BLS experience right now with Spoko.
+              Begin your EMDR experience right now with us.
             </h2>
             <p className="mt-2 max-w-2xl text-white/80">
               No registration, no tracking, no distractions.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Link href="/session" className="text-lg font-bold">
-                Start BLS session
+                Start session
               </Link>
             </div>
           </div>

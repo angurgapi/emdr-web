@@ -6,7 +6,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "Spoko | EMDR Online | BLS",
+  title: "EMDR4U | EMDR Therapy Online | BLS",
   description: "Bilateral stimulation tool for EMDR therapy",
   icons: {
     icon: "/favicon.ico",
