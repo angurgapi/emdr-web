@@ -4,6 +4,7 @@ import Demo from "@/components/landing/Demo";
 import Container from "@/components/landing/Container";
 import Features from "@/components/landing/Features";
 import { Button } from "@/components/ui/button";
+import { DemoVideo } from "@/components/landing/DemoVideo";
 
 function Hero() {
   return (
@@ -98,7 +99,8 @@ export default function LandingPage() {
       <Hero />
       <WhatIs />
       <Features />
-      <Demo />
+      {/* <Demo /> */}
+      <DemoVideo />
       <CTA />
     </main>
   );

@@ -12,18 +12,15 @@ import {
   SessionDuration,
   useSessionSettings,
 } from "@/store/sessionSettings";
-import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { useEffect } from "react";
+import { ColorPicker } from "../ui/color-picker";
 import {
   MoveDiagonal,
   MoveDiagonal2,
   MoveHorizontal,
   MoveVertical,
-  Infinity,
 } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
-import { audio } from "framer-motion/client";
 
 export function SettingsSidebar() {
   const {
@@ -78,28 +75,20 @@ export function SettingsSidebar() {
   // }, [setBallSize]);
   return (
     <Sidebar className="z-50 min-h-[200px]">
-      <SidebarContent className="pt-1">
+      <SidebarContent className="pt-1 overflow-y-auto">
         <SidebarHeader className="font-bold">Preferences</SidebarHeader>
         <SidebarGroup>
           <SidebarGroupContent>
             <div>
               <span className="mb-2 block font-semibold">Colors</span>
-              <div className="flex gap-2">
-                <div className="flex w-full flex-col gap-2">
-                  <span>BLS</span>
-                  <Input
-                    type="color"
-                    value={ballColor}
-                    onChange={(e) => setBallColor(e.target.value)}
-                  />
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2">
+                  <span className="text-sm">BLS</span>
+                  <ColorPicker color={ballColor} onChange={setBallColor} />
                 </div>
-                <div className="flex w-full flex-col gap-2">
-                  <span>Background</span>
-                  <Input
-                    type="color"
-                    value={bgColor}
-                    onChange={(e) => setBgColor(e.target.value)}
-                  />
+                <div className="flex flex-col gap-2">
+                  <span className="text-sm">Background</span>
+                  <ColorPicker color={bgColor} onChange={setBgColor} />
                 </div>
               </div>
             </div>
@@ -152,26 +141,32 @@ export function SettingsSidebar() {
                   </Button>
                 ))}
               </div>
-              <div className="flex flex-col gap-2 mt-4">
-                <span className="font-semibold">Sound on/off</span>
-                <Switch checked={isSoundOn} onCheckedChange={setSoundOn} />
-              </div>
-              {isSoundOn && (
-                <div className="flex flex-col gap-2 mt-4">
-                  <span className="font-semibold">Sound type</span>
-                  <div className="flex gap-2 items-center">
-                    {["snap", "heartbeat", "beep"].map((sound) => (
-                      <Button
-                        size="sm"
-                        variant={sound === audioSound ? "default" : "outline"}
-                        key={sound}
-                        onClick={() => setAudioSound(sound as AudioSound)}
-                      >
-                        {sound}
-                      </Button>
-                    ))}
+              {ballDirection === "leftToRight" && (
+                <>
+                  <div className="flex flex-col gap-2 mt-4">
+                    <span className="font-semibold">Sound on/off</span>
+                    <Switch checked={isSoundOn} onCheckedChange={setSoundOn} />
                   </div>
-                </div>
+                  {isSoundOn && (
+                    <div className="flex flex-col gap-2 mt-4">
+                      <span className="font-semibold">Sound type</span>
+                      <div className="flex gap-2 items-center">
+                        {["snap", "heartbeat", "beep"].map((sound) => (
+                          <Button
+                            size="sm"
+                            variant={
+                              sound === audioSound ? "default" : "outline"
+                            }
+                            key={sound}
+                            onClick={() => setAudioSound(sound as AudioSound)}
+                          >
+                            {sound}
+                          </Button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
               )}
               <div className="flex flex-col gap-2 mt-4">
                 <span className="font-semibold">Session duration</span>
