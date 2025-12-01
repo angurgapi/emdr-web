@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ isFullWidth }) => {
           <div className="flex items-center gap-3">
             <ThemeToggle />
             <Link href="/session" className="text-lg font-bold text-primary">
-              EMDR session
+              session
             </Link>
           </div>
         </div>

@@ -11,19 +11,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-  keywords: [
-    "EMDR",
-    "Bilateral Stimulation",
-    "BLS",
-    "Therapy",
-    "Mental Health",
-    "Self-Help",
-    "PTSD",
-    "Anxiety",
-    "Depression",
-    "Wellness",
-    "Trauma",
-  ],
 };
 export const viewport: Viewport = { colorScheme: "dark light" };
 
@@ -43,6 +30,11 @@ export default async function RootLayout({
   const initialHtmlClass = await computeInitialClassFromCookie();
   return (
     <html lang="en" className={initialHtmlClass} suppressHydrationWarning>
+      <head>
+        <link rel="alternate" href="https://emdr4u.com/" hrefLang="x-default" />
+        <link rel="alternate" href="https://emdr4u.com/" hrefLang="en" />
+        <link rel="alternate" href="https://spoko.help/" hrefLang="pl-pl" />
+      </head>
       <body className="min-h-screen bg-white text-zinc-900 dark:bg-black dark:text-white antialiased flex flex-col">
         <ThemeProvider />
         <div id="root" className="flex flex-col flex-1 pt-12 min-h-screen">

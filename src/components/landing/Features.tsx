@@ -32,9 +32,7 @@ const Features = () => {
   return (
     <section id="features" className="py-6 md:py-10">
       <Container>
-        <h2 className="text-2xl font-semibold md:text-3xl">
-          Why you might like what we offer
-        </h2>
+        <h2 className="text-2xl font-semibold md:text-3xl">Key features</h2>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mt-4">
           {featuresList.map((feature) => (
             <FeatureCard key={feature.title} {...feature} />

@@ -147,9 +147,9 @@ const SessionBox = () => {
     >
       <div
         className={`
-    panelcontrol absolute w-full top-2 right-2 flex gap-2 justify-between 
+    panelcontrol absolute w-full top-2 right-0 flex gap-2 justify-between 
     transition-all duration-300
-    ${open ? "pl-[10px]" : "pl-[60px]"}
+    ${open ? "pl-[10px]" : "pl-[50px]"}
   `}
       >
         <SessionTimer />

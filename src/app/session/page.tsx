@@ -20,7 +20,7 @@ function SessionContent() {
   return (
     <>
       <SettingsSidebar />
-      <SettingsSidebarTrigger className="absolute top-2 left-6 z-10" />
+      <SettingsSidebarTrigger className="absolute top-2 left-4 z-10" />
       <div className="w-full" onClick={handleContentClick}>
         <SessionContainer />
       </div>

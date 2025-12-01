@@ -1,6 +1,6 @@
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
-import Demo from "@/components/landing/Demo";
+// import Demo from "@/components/landing/Demo";
 import Container from "@/components/landing/Container";
 import Features from "@/components/landing/Features";
 import { Button } from "@/components/ui/button";
@@ -20,9 +20,9 @@ function Hero() {
             EMDR & Bilateral Stimulation, made simple.
           </h1>
           <p className="mt-4 max-w-2xl text-gray-600 md:text-lg dark:text-gray-300">
-            A tiny, focused playground for self-administered BLS: smooth motion,
-            fullscreen, keyboard controls. Built to be distraction‑free and
-            delightful.
+            A free, customizable playground for self-administered EMDR: smooth
+            motion, fullscreen, keyboard controls. Built to be distraction‑free
+            and delightful.
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link href="/session" className="text-lg font-bold">
@@ -36,7 +36,7 @@ function Hero() {
                 className="font-semibold text-primary--900"
                 size="lg"
               >
-                Try the Demo
+                See demo
               </Button>
             </Link>
           </div>
@@ -50,18 +50,28 @@ function WhatIs() {
   return (
     <section className="py-6">
       <Container>
-        <h2 className="text-2xl font-semibold md:text-3xl">
-          What is bilateral stimulation?
-        </h2>
+        <h2 className="text-2xl font-semibold md:text-3xl">What is EMDR?</h2>
         <p className="mt-4 max-w-4xl text-gray-600 md:text-lg dark:text-gray-300">
-          Bilateral stimulation (BLS) is a part of EMDR therapy. This technique
-          is used to help people process and integrate traumatic memories. It
-          involves alternating sensory input, such as visual or auditory
-          stimuli, to facilitate emotional regulation and promote healing.
-          Trauma survuivors usually notice first improvements in sleep quality
-          and reduced anxiety levels after 3-6 sessions. It is usually
-          administered by a trained therapist, but self-administered BLS can
-          also be beneficial for relaxation and stress reduction.
+          EMDR stands for Eye Movement Desensitization and Reprocessing. It was
+          designed to help individuals process and heal from{" "}
+          <span className="font-semibold">traumatic experiences</span> or
+          distressing memories. It can also be beneficial for managing{" "}
+          <span className="font-semibold">anxiety, stress</span>, and other
+          emotional challenges. EMDR therapy typically involves guided{" "}
+          <span className="font-semibold">eye movements</span> or other forms of
+          bilateral stimulation (BLS) while recalling traumatic events, which
+          can help reprocess and integrate these memories in a healthier way.
+        </p>
+        <p className="mt-4 max-w-4xl text-gray-600 md:text-lg dark:text-gray-300">
+          <span className="font-semibold">Why it works: </span>your brain
+          allocates the resources to handle visual or auditory stimuli leaving
+          less resources to severe trauma response.{" "}
+          <span className="font-semibold">Taking observer position</span>
+          when processing traumatic memories can help reduce their emotional
+          intensity. Trauma survuivors usually notice first improvements in
+          sleep quality and reduced anxiety levels after 3-6 sessions. It is
+          usually administered by a trained therapist, but self-administered BLS
+          can also be beneficial for relaxation and stress reduction.
         </p>
       </Container>
     </section>
