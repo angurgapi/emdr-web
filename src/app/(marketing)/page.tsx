@@ -27,7 +27,7 @@ function Hero() {
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link href="/session" className="text-lg font-bold">
               <Button className="font-semibold" size="lg">
-                Start free session
+                Free EMDR session
               </Button>
             </Link>
             <Link href="#demo">
@@ -66,12 +66,13 @@ function WhatIs() {
           <span className="font-semibold">Why it works: </span>your brain
           allocates the resources to handle visual or auditory stimuli leaving
           less resources to severe trauma response.{" "}
-          <span className="font-semibold">Taking observer position</span>
+          <span className="font-semibold">Taking observer position </span>
           when processing traumatic memories can help reduce their emotional
           intensity. Trauma survuivors usually notice first improvements in
-          sleep quality and reduced anxiety levels after 3-6 sessions. It is
-          usually administered by a trained therapist, but self-administered BLS
-          can also be beneficial for relaxation and stress reduction.
+          sleep quality and reduced anxiety levels after{" "}
+          <span className="font-semibold">3-6 sessions.</span> It is usually
+          administered by a trained therapist, but self-administered BLS can
+          also be beneficial for relaxation and stress reduction.
         </p>
       </Container>
     </section>

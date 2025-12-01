@@ -9,7 +9,7 @@ export function DemoVideo() {
     <section id="demo" className="py-10">
       <Container>
         <div className="rounded-3xl border p-2 md:p-4 shadow-sm dark:bg-gray-800">
-          <h4 className="text-2xl font-semibold md:text-3xl">
+          <h4 className="text-2xl font-semibold md:text-3xl ml-4 md:ml-0">
             See how it works
           </h4>
 

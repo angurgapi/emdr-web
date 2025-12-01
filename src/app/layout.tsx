@@ -31,7 +31,6 @@ export default async function RootLayout({
   return (
     <html lang="en" className={initialHtmlClass} suppressHydrationWarning>
       <head>
-        <link rel="alternate" href="https://emdr4u.com/" hrefLang="x-default" />
         <link rel="alternate" href="https://emdr4u.com/" hrefLang="en" />
         <link rel="alternate" href="https://spoko.help/" hrefLang="pl-pl" />
       </head>
