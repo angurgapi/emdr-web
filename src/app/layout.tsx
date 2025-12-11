@@ -6,8 +6,9 @@ import ThemeProvider from "@/components/ThemeProvider";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "EMDR4U | EMDR Therapy Online | BLS",
-  description: "Bilateral stimulation tool for EMDR therapy",
+  title: "Online EMDR sessions for anxiety, trauma & stress relief | EMDR4U",
+  description:
+    "Experience EMDR therapy online with guided bilateral stimulation to reduce stress, anxiety, and trauma responses. Start self-paced EMDR sessions anytime and feel more grounded in minutes",
   icons: {
     icon: "/favicon.ico",
   },
