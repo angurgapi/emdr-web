@@ -1,5 +1,9 @@
 import { getSessionSettings } from "@/store/sessionSettings";
 
+interface AudioElementWithSource extends HTMLAudioElement {
+    __source?: MediaElementAudioSourceNode;
+}
+
 class SoundService {
     private cache: Record<string, HTMLAudioElement> = {};
     private lastPlay: Record<string, number> = {};
@@ -8,7 +12,7 @@ class SoundService {
 
     private getAudioContext(): AudioContext {
         if (!this.audioContext) {
-            this.audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+            this.audioContext = new ((window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext) as typeof AudioContext)();
         }
         return this.audioContext;
     }
@@ -44,17 +48,17 @@ class SoundService {
         if (now - last < 100) return;
         this.lastPlay[audioSound] = now;
 
-        const audio = this.getAudio(audioSound);
+        const audio = this.getAudio(audioSound) as AudioElementWithSource;
         const ctx = this.getAudioContext();
         const panner = this.getPanner(audioSound);
         const panValue = side === "left" ? -1 : 1;
         panner.pan.value = panValue;
 
         // Create source if needed
-        if (!(audio as any).__source) {
+        if (!audio.__source) {
             const source = ctx.createMediaElementSource(audio);
             source.connect(panner);
-            (audio as any).__source = source;
+            audio.__source = source;
         }
 
         audio.volume = volume;
