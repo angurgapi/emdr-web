@@ -51,6 +51,7 @@ export class Ball {
     // time + animation frame
     private last: number | null = null;
     private raf: number | null = null;
+    private isFirstMove = true;
 
     // measurements + listeners
     private ro: ResizeObserver | null = null;
@@ -139,12 +140,14 @@ export class Ball {
         this.direction = dir;
         this.initByDirection();
         this.last = null;
+        this.isFirstMove = true;
         this.applyTransform();
     }
 
     reset() {
         this.initByDirection();
         this.last = null;
+        this.isFirstMove = true;
         this.applyTransform();
     }
 
@@ -163,15 +166,18 @@ export class Ball {
         const { minX, maxX } = this._bounds;
         this.cx += this.dirX * this.speedX * dt;
         if (this.cx <= minX) {
+            // console.log("cx<=minX", this.cx)
             this.cx = minX;
             this.dirX = 1;
-            soundService.play();
+            if (!this.isFirstMove) soundService.play("left");
         }
         else if (this.cx >= maxX) {
+            // console.log("cx>=minX")
             this.cx = maxX;
             this.dirX = -1;
-            soundService.play();
+            if (!this.isFirstMove) soundService.play("right");
         }
+        this.isFirstMove = false;
     }
 
     moveVertical(dt: number) {
