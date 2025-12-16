@@ -35,9 +35,9 @@ export default async function RootLayout({
         <link rel="alternate" href="https://emdr4u.com/" hrefLang="en" />
         <link rel="alternate" href="https://spoko.help/" hrefLang="pl-pl" />
       </head>
-      <body className="min-h-screen bg-white text-zinc-900 dark:bg-black dark:text-white antialiased flex flex-col">
+      <body className="min-h-svh bg-white text-zinc-900 dark:bg-black dark:text-white antialiased flex flex-col">
         <ThemeProvider />
-        <div id="root" className="flex flex-col flex-1 pt-12 min-h-screen">
+        <div id="root" className="flex flex-col flex-1 pt-12 h-svh">
           {children}
         </div>
       </body>
