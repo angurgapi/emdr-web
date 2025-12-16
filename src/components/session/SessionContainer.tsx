@@ -140,7 +140,7 @@ const SessionBox = () => {
 
   return (
     <div
-      className={`w-full h-full relative pt-[50px] ${
+      className={`w-full h-svh md:h-full relative pt-[50px] ${
         isFullscreen ? "" : "max-h-[85vh]"
       }`}
       ref={wrapperRef}
